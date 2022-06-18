@@ -19,7 +19,7 @@ class APIResult
 	}
 	
 	public function isError(): bool {
-		return 200 === $this->status;
+		return 200 !== $this->status;
 	}
 	
 	public function getRaw()
