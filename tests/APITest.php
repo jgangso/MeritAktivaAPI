@@ -1,6 +1,5 @@
 <?php
 
-
 use Infira\MeritAktiva\API;
 use Infira\MeritAktiva\APIResult;
 use PHPUnit\Framework\TestCase;
@@ -14,7 +13,7 @@ class APITest extends TestCase {
 	public function testGetSalesInvoicesIsApiResult() {
 		$api = $this->getApi();
 		
-		$invoices = $api->getSalesInvoices( '-1 week', 'today' );
+		$invoices = $api->getSalesInvoices( '-3 month', 'today' );
 		
 		$this->assertInstanceOf( APIResult::class, $invoices );
 	}
@@ -23,8 +22,10 @@ class APITest extends TestCase {
 	public function testGetSalesInvoicesReturnsArray() {
 		$api = $this->getApi();
 		
-		$invoices = $api->getSalesInvoices( '-1 week', 'today' );
+		$invoices = $api->getSalesInvoices( '-3 month', 'today' );
 		
 		$this->assertIsArray(  $invoices->getRaw() );
 	}
+	
+	
 }
