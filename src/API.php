@@ -58,7 +58,7 @@ class API extends \Infira\MeritAktiva\General
 	private $url             = "";
 	private $debug           = FALSE;
 	
-	public function __construct($apiID, $apiKey, $country = 'ee', $vatPercent = 20)
+	public function __construct($apiID, $apiKey, $country = 'ee' )
 	{
 		$this->apiID  = $apiID;
 		$this->apiKey = $apiKey;
@@ -78,7 +78,6 @@ class API extends \Infira\MeritAktiva\General
 		{
 			throw new \Error("Unknown country");
 		}
-		define("MERIT_VAT_PERCENT", $vatPercent);
 	}
 	
 	public function setDebug(bool $bool)

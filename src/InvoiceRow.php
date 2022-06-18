@@ -14,7 +14,7 @@ class InvoiceRow extends \Infira\MeritAktiva\General
 	 *
 	 * @param float $taxPercent - tax percent
 	 */
-	public function __construct(float $taxPercent = MERIT_VAT_PERCENT)
+	public function __construct(float $taxPercent )
 	{
 		$this->taxPercent = $taxPercent;
 		$this->setMandatoryField('Item');
