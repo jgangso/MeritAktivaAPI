@@ -1,6 +1,6 @@
 {
     "name": "jgangso/merit-aktiva-api",
-    "description": "PHP Api for Merit Aktiva API",
+    "description": "PHP library for Merit Aktiva API",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -19,5 +19,12 @@
         }
       },
     "minimum-stability": "stable",
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
+  "require": {
+    "ext-json": "*",
+      "ext-curl": "*",
+      "ext-mbstring": "*"
+  }
 }
