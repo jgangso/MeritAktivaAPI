@@ -96,8 +96,9 @@ class API extends \Infira\MeritAktiva\General
 		return $this->lastRequestUrl;
 	}
 	
-	private function send($endPoint, $payload = NULL)
+	private function send($endPoint, $payload = NULL): array
 	{
+		$ret = [];
 		$timestamp = date("YmdHis");
 		$urlParams = "";
 		$json      = "";
@@ -141,19 +142,23 @@ class API extends \Infira\MeritAktiva\General
 		
 		$status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 		
+		$ret['status'] = $status;
+		
 		if ($status != 200)
 		{
 			$error = "Error: call to URL $url <br>STATUS: $status<br>CURL_ERROR: " . curl_error($curl) . "<br> CURL_ERRNO: " . curl_errno($curl);
 			$error .= '<br><br>API SAYS:' . dump($this->jsonDecode($curlResponse, TRUE));
 			
-			return $error;
+			$ret['data'] = $error;
+		} else {
+			$ret['data'] = $this->jsonDecode( $curlResponse );
 		}
 		if (isset($curl))
 		{
 			curl_close($curl);
 		}
 		
-		return $this->jsonDecode( $curlResponse );
+		return $ret;
 	}
 	
 	private function jsonDecode($json, $checkError = FALSE)

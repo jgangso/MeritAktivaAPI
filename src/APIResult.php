@@ -3,25 +3,32 @@
 namespace Infira\MeritAktiva;
 class APIResult
 {
-	private $res = "";
+	private $data = "";
+	/**
+	 * @var int|null
+	 */
+	private int $status;
 	
-	public function __construct($res)
+	/**
+	 * @param array $response
+	 */
+	public function __construct( array $response )
 	{
-		$this->res = $res;
+		$this->status = $response['status'] ?? null;
+		$this->data   = $response['data'] ?? null;
 	}
 	
-	public function isError()
-	{
-		return (is_object($this->res) || is_array($this->res)) ? FALSE : TRUE;
+	public function isError(): bool {
+		return 200 === $this->status;
 	}
 	
 	public function getRaw()
 	{
-		return $this->res;
+		return $this->data;
 	}
 	
 	public function getError()
 	{
-		return $this->res;
+		return $this->data;
 	}
 }
