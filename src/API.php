@@ -163,7 +163,6 @@ class API extends \Infira\MeritAktiva\General
 	
 	private function jsonDecode($json, $checkError = FALSE)
 	{
-		$json = stripslashes($json);
 		if (substr($json, 0, 1) == '"' AND substr($json, -1) == '"')
 		{
 			$data = json_decode(substr($json, 1, -1));
