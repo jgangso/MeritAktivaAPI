@@ -26,6 +26,15 @@ class APITest extends TestCase {
 		
 		$this->assertIsArray(  $invoices->getRaw() );
 	}
-	
-	
+    
+    
+    public function testGetItemByCodeReturnsItem(){
+        $api = $this->getApi();
+        
+        $result = $api->getItemByCode($_ENV['MERIT_DEFAULT_ITEM_CODE']);
+        
+        $item = current($result->getRaw());
+        
+        $this->assertEquals($_ENV['MERIT_DEFAULT_ITEM_CODE'], $item->Code );
+    }
 }
