@@ -8,7 +8,7 @@ class SalesInvoice extends \Infira\MeritAktiva\InvoiceGeneral
 	{
 		$this->setMandatoryField('Customer');
 		$this->setMandatoryField('InvoiceNo');
-		$this->setMandatoryField('TaxAmount');
+		$this->setMandatoryField('TaxAmounts');
 		$this->setMandatoryField('TotalAmount');
 	}
 	

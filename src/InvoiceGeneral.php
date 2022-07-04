@@ -84,13 +84,13 @@ abstract class InvoiceGeneral extends \Infira\MeritAktiva\General
 	
 	public function getTaxAmounts(): array
 	{
-		return $this->get("TaxAmount", []);
+		return $this->get("TaxAmounts", []);
 	}
 	
 	public function setTaxAmount(\Infira\MeritAktiva\VATObject $VATObject)
 	{
 		$this->taxRows[$VATObject->getTaxID()] = $VATObject;
-		$this->set("TaxAmount", array_values($this->taxRows));
+		$this->set("TaxAmounts", array_values($this->taxRows));
 	}
 	
 	/**

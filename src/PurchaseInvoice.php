@@ -7,7 +7,7 @@ class PurchaseInvoice extends \Infira\MeritAktiva\InvoiceGeneral
 	{
 		$this->setMandatoryField('Vendor');
 		$this->setMandatoryField('InvoiceNo');
-		$this->setMandatoryField('TaxAmount');
+		$this->setMandatoryField('TaxAmounts');
 		$this->setMandatoryField('TotalAmount');
 	}
 	
